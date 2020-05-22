@@ -35,6 +35,24 @@ struct ContentView: View {
         }
     }
     
+    struct ButtonLargeTextStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(.black)
+                .font(Font.custom("Arial Rounded MT Bold", size: 18))
+            
+        }
+    }
+    
+    struct ButtonSmallTextStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(.black)
+                .font(Font.custom("Arial Rounded MT Bold", size: 12))
+            
+        }
+    }
+    
     struct Shadow: ViewModifier {
         func body(content: Content) -> some View {
             return content.shadow(color: .black, radius: 5, x: 2, y: 2)
@@ -59,7 +77,7 @@ struct ContentView: View {
             Button(action: {
                 self.alertIsPresented = true
             }) {
-                Text(/*@START_MENU_TOKEN@*/"Hit Me!"/*@END_MENU_TOKEN@*/)
+                Text("Hit Me!")
             }.alert(isPresented: $alertIsPresented) { () -> Alert in
                 return Alert(title: Text(alertTitle()), message: Text(
                     "The slider's value is \(sliderValueRounded()).\n" +
@@ -68,13 +86,13 @@ struct ContentView: View {
                         self.target = Int.random(in: 1...100)
                         self.round += 1
                     }))
-            }.background(Image("Button")).modifier(Shadow())
+                }.background(Image("Button")).modifier(Shadow())
             Spacer()
             HStack {
                 Button(action: {
                     self.startNewGame()
                 }) {
-                    Text("Start over")
+                    Text("Start over").modifier(ButtonSmallTextStyle())
                 }.background(Image("Button")).modifier(Shadow())
                 Spacer()
                 Text("Score:").modifier(LabelStyle())
@@ -86,7 +104,7 @@ struct ContentView: View {
                 Button(action: {
                     
                 }) {
-                    Text("Info")
+                    Text("Info").modifier(ButtonSmallTextStyle())
                 }.background(Image("Button")).modifier(Shadow())
             }.padding(.bottom, 20)
         }.background(Image("Background"))

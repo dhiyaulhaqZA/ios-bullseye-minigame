@@ -12,13 +12,14 @@ struct ContentView: View {
     
     @State var alertIsPresented = false
     @State var sliderValue = 50.0
+    @State var target = Int.random(in: 1...100)
     
     var body: some View {
         VStack {
             Spacer()
             HStack {
                 Text("Put the bullseye as close as you can:")
-                Text("100")
+                Text("\(target)")
             }
             Spacer()
             HStack {

@@ -17,7 +17,8 @@ struct AboutView: View {
             return content
                 .font(Font.custom("Arial Rounded MT Bold", size: 18))
                 .foregroundColor(.black)
-                .padding(.init(arrayLiteral: .top, .bottom), 20)
+                .padding(.top, 20)
+                .padding(.bottom, 20)
         }
     }
     
@@ -26,19 +27,23 @@ struct AboutView: View {
             return content
                 .font(Font.custom("Arial Rounded MT Bold", size: 16))
                 .foregroundColor(.black)
-                .padding(EdgeInsets(top: 0, leading: 60, bottom: 20, trailing: 60))
+                .padding(.leading, 60)
+                .padding(.trailing, 60)
+                .padding(.bottom, 20)
         }
     }
     
     var body: some View {
-        VStack {
-            Text("🎯 Bullseye 🎯").modifier(HeadingStyle())
-            Text("This is Bullseye, the game where you can win points and earn fame by dragging a slider").modifier(TextStyle())
-            Text("Your goal is to place the slider as close as possible to the target value. The closer you are, the more points you score.").modifier(TextStyle())
-            Text("Enjoy!").modifier(TextStyle())
-        }
-        .navigationBarTitle("About Bullseye")
-        .background(paleOrange)
+        Group {
+            VStack {
+                Text("🎯 Bullseye 🎯").modifier(HeadingStyle())
+                Text("This is Bullseye, the game where you can win points and earn fame by dragging a slider").modifier(TextStyle())
+                Text("Your goal is to place the slider as close as possible to the target value. The closer you are, the more points you score.").modifier(TextStyle())
+                Text("Enjoy!").modifier(TextStyle())
+            }
+            .navigationBarTitle("About Bullseye")
+            .background(paleOrange)
+        }.background(Image("Background"))
     }
 }
 

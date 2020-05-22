@@ -77,7 +77,7 @@ struct ContentView: View {
             Button(action: {
                 self.alertIsPresented = true
             }) {
-                Text("Hit Me!")
+                Text("Hit Me!").modifier(ButtonLargeTextStyle())
             }.alert(isPresented: $alertIsPresented) { () -> Alert in
                 return Alert(title: Text(alertTitle()), message: Text(
                     "The slider's value is \(sliderValueRounded()).\n" +
@@ -92,7 +92,10 @@ struct ContentView: View {
                 Button(action: {
                     self.startNewGame()
                 }) {
-                    Text("Start over").modifier(ButtonSmallTextStyle())
+                    HStack {
+                        Image("StartOverIcon")
+                        Text("Start over").modifier(ButtonSmallTextStyle())
+                    }
                 }.background(Image("Button")).modifier(Shadow())
                 Spacer()
                 Text("Score:").modifier(LabelStyle())
@@ -104,7 +107,10 @@ struct ContentView: View {
                 Button(action: {
                     
                 }) {
-                    Text("Info").modifier(ButtonSmallTextStyle())
+                    HStack {
+                        Image("InfoIcon")
+                        Text("Info").modifier(ButtonSmallTextStyle())
+                    }
                 }.background(Image("Button")).modifier(Shadow())
             }.padding(.bottom, 20)
         }.background(Image("Background"))

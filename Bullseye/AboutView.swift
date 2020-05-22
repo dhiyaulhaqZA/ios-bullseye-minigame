@@ -9,13 +9,26 @@
 import SwiftUI
 
 struct AboutView: View {
+    
+    let paleOrange = Color(red: 255.0 / 255.0, green: 214.0 / 255.0, blue: 179.0 / 255.0)
+    
+    struct HeadingStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .font(Font.custom("Arial Rounded MT Bold", size: 18))
+                .foregroundColor(.black)
+                .padding(.init(arrayLiteral: .top, .bottom), 20)
+        }
+    }
+    
     var body: some View {
         VStack {
-            Text("🎯 Bullseye 🎯")
+            Text("🎯 Bullseye 🎯").modifier(HeadingStyle())
             Text("This is Bullseye, the game where you can win points and earn fame by dragging a slider")
             Text("Your goal is to place the slider as close as possible to the target value. The closer you are, the more points you score.")
             Text("Enjoy!")
-        }.navigationBarTitle("About Bullseye")
+        }
+        .navigationBarTitle("About Bullseye")
     }
 }
 

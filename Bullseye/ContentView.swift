@@ -36,8 +36,8 @@ struct ContentView: View {
                 Text(/*@START_MENU_TOKEN@*/"Hit Me!"/*@END_MENU_TOKEN@*/)
             }.alert(isPresented: $alertIsPresented) { () -> Alert in
                 return Alert(title: Text(alertTitle()), message: Text(
-                "The slider's value is \(sliderValueRounded()).\n" +
-                "You scored \(pointsForCurrentRound())"), dismissButton: .default(Text("Awesome!"), action: {
+                    "The slider's value is \(sliderValueRounded()).\n" +
+                    "You scored \(pointsForCurrentRound())"), dismissButton: .default(Text("Awesome!"), action: {
                         self.score += self.pointsForCurrentRound()
                         self.target = Int.random(in: 1...100)
                         self.round += 1

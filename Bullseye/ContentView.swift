@@ -117,6 +117,7 @@ struct ContentView: View {
         }
         .background(Image("Background"))
         .accentColor(midnightBlue)
+        .navigationBarTitle("Bullseye")
     }
     
     func sliderValueRounded() -> Int {

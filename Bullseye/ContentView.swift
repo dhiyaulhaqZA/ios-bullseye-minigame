@@ -68,14 +68,14 @@ struct ContentView: View {
                         self.target = Int.random(in: 1...100)
                         self.round += 1
                     }))
-            }
+            }.background(Image("Button")).modifier(Shadow())
             Spacer()
             HStack {
                 Button(action: {
                     self.startNewGame()
                 }) {
                     Text("Start over")
-                }
+                }.background(Image("Button")).modifier(Shadow())
                 Spacer()
                 Text("Score:").modifier(LabelStyle())
                 Text("\(score)").modifier(ValueStyle())
@@ -87,7 +87,7 @@ struct ContentView: View {
                     
                 }) {
                     Text("Info")
-                }
+                }.background(Image("Button")).modifier(Shadow())
             }.padding(.bottom, 20)
         }.background(Image("Background"))
     }

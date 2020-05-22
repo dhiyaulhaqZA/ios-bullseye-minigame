@@ -38,6 +38,7 @@ struct AboutView: View {
             Text("Enjoy!").modifier(TextStyle())
         }
         .navigationBarTitle("About Bullseye")
+        .background(paleOrange)
     }
 }
 
